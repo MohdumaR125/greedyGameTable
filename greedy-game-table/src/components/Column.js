@@ -1,12 +1,4 @@
-// Date
-//  App Name
-//  AD Request
-//  AD Response
-//  Impression
-//  Clicks
-//  Revenue
-//  Fill Rate ( = Ad Request / AD Response * 100%)
-//  CTR ( = Clicks / Impression * 100%)
+
 
 export const Columns = [
     {

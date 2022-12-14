@@ -1,11 +1,14 @@
 import { useState } from "react";
 import DatePicker from "../components/DatePicker"
+import Settings from "../components/Settings";
 import Table from "../components/Table"
 
 const TablePage = ()=>{
     const [data,setData] = useState([]);
     const [startDate,setStartDate]=useState("");
     const [endDate,setEndDate]=useState("");
+    const [settingOpen,setSettingOpen]= useState(true);
+
 
     const start = (e)=>{
         setStartDate(e.target.value)
@@ -28,10 +31,14 @@ const TablePage = ()=>{
         console.log(data1.data)
         setData(data1.data);
     }
+    const hidesettings = ()=>{
+        setSettingOpen(!settingOpen);
+    }
 
 return(
     <>
     <DatePicker start={start} end = {end} />
+    <Settings hidesettings={hidesettings} settingOpen={settingOpen}/>
     <Table data={data}/>
     </>
 )
