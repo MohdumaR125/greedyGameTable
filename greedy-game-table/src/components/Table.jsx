@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import {useMemo} from "react";
-import { Columns } from "./Column";
+import { useSelector } from "react-redux";
 
 const Table = (props)=>{
-    const columns=useMemo(()=>Columns,[Columns])
     const {data}=props;
+    const state=useSelector(state=>state.Columns)
+    console.log(state)
  
     return (
         <table>
             <thead>
                 <tr>
                     {
-                        columns.map((el,index)=>(
-                            <th key={index}>{el.Header}</th>
+                       state.map((el,index)=>(
+                          el.hide &&  <th key={index}>{el.Header}</th>
                         
                         ))
 
@@ -21,10 +21,10 @@ const Table = (props)=>{
             </thead>
             <tbody>
                 {
-                    Object.values(data).map((el,index)=>(
+                    data.map((el,index)=>(
                         <tr key={index}>
-                            {Object.values(el).map((value,index2)=>(
-                                <td key={index2}>{value}</td>
+                            { Object.values(el).map((value,index2)=>(
+                               state[index2].hide && <td key={index2}>{value}</td>
                             ))}
                         </tr>
                     ))

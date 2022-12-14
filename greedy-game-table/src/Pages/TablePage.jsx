@@ -34,11 +34,12 @@ const TablePage = ()=>{
     const hidesettings = ()=>{
         setSettingOpen(!settingOpen);
     }
+    
 
 return(
     <>
     <DatePicker start={start} end = {end} />
-    <Settings hidesettings={hidesettings} settingOpen={settingOpen}/>
+    <Settings hidesettings={hidesettings} settingOpen={settingOpen} />
     <Table data={data}/>
     </>
 )
