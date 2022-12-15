@@ -4,15 +4,17 @@ import { useDispatch } from "react-redux";
 import { handlehide } from "../Redux/action";
 import { useSelector } from "react-redux";
 import { Columns } from "./Column";
+import Styles from "../components/Styles.module.css";
 
 
-
+//Setting bar for filtering data
 const Settings = (props)=>{
     const [settingOpen,setSettingOpen]= useState(true);
     const { searchParams,setSearchParams}=props;
     const dispatch = useDispatch()
     const state=useSelector(state=>state.Columns)
     
+    //hiding or unhiding column of the table
     const handleHide = (e) => {
         const id=e.target.id;
         const data=Columns.find((el)=>{
@@ -28,11 +30,12 @@ const Settings = (props)=>{
             const action=handlehide(payload)
             dispatch(action)
         }
+        //for hiding setting div
         const hidesettings = ()=>{
             setSettingOpen(!settingOpen);
         }
         const handleFilters = () => {
-        console.log(state)
+        hidesettings()
         
 
     }
@@ -41,18 +44,17 @@ const Settings = (props)=>{
 
     return (
         <>
-        <button onClick={hidesettings}>Settings</button>
-        {settingOpen && <div>
+        <div className={Styles.settingbtn}><button onClick={hidesettings}>Settings</button></div>
+        {settingOpen && <div className={Styles.setting}>
             <div>
-                <p>Dimensions and Metrics</p>
+                <h4>Dimensions and Metrics</h4>
                 {
                     Columns.map((el,index)=>(
                         <button key={index} id={el.Header} onClick={handleHide}>{el.Header}</button>
                     ))
                 }
             </div>
-            <div>
-                <button onClick={hidesettings}>Close</button>
+            <div className={Styles.apply}>
                 <button onClick={handleFilters}>Apply Changes</button>
             </div>
         </div>

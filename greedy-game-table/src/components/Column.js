@@ -1,5 +1,5 @@
 
-
+//all the columns in table
 export const Columns = [
     {
         Header:"Date",
