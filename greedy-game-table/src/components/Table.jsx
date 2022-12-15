@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const Table = (props)=>{
     const {data}=props;
     const state=useSelector(state=>state.Columns)
-    console.log(state)
  
     return (
         <table>
