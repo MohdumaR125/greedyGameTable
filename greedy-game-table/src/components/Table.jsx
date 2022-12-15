@@ -8,7 +8,27 @@ import Styles from "../components/Styles.module.css"
 const Table = (props)=>{
     const {data}=props;
     const state=useSelector(state=>state.Columns)
- 
+
+    data.forEach(el => {
+       if(el.app_id=="123456"){
+        el.app_id="Panda Draw";
+       }
+       if(el.app_id=="789652"){
+        el.app_id="Word Crush";
+       }
+       if(el.app_id=="741553"){
+        el.app_id="Word Crush";
+       }
+       if(el.app_id=="986321"){
+        el.app_id="Brain Quiz";
+       }
+       if(el.app_id=="320248"){
+        el.app_id="Age Calculator";
+       }
+        
+    });
+  
+
     return (
         <table className={Styles.table}>
             <thead>

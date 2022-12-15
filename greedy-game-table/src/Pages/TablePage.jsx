@@ -20,6 +20,7 @@ const TablePage = () => {
     const enddate = searchParams.get("end");
     const startdate = searchParams.get("start");
 
+
     //handling searchParam for date
     if (startdate && enddate) {
       setStartDate(startdate);
@@ -49,6 +50,8 @@ const TablePage = () => {
     getData(startDate, endDate);
   };
 
+
+
   // after date getting data related to it
   const getData = async (s, e) => {
     const res = await fetch(
@@ -76,7 +79,7 @@ const TablePage = () => {
     <>
       <DatePicker start={start} end={end} handleEnter={handleEnter} />
       <Settings searchParams={searchParams} setSearchParams={setSearchParams} />
-      <Table data={data} />
+      <Table data={data}/>
     </>
   );
 };

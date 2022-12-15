@@ -17,27 +17,29 @@ const Settings = (props)=>{
     //hiding or unhiding column of the table
     const handleHide = (e) => {
         const id=e.target.id;
-        const data=Columns.find((el)=>{
-            return(el.Header===id)
-        })
-        const payload=Object.assign({...data,hide:!data.hide})
-        if(payload.hide===false){
-            searchParams.set(payload.accessor,false);
-        }else{
-            searchParams.delete(payload.accessor);
+        console.log(id)
+        if(id!=="Date"&&id!=="App Name"){
+            console.log("enter",id)
+            const data=Columns.find((el)=>{
+                return(el.Header===id)
+            })
+            const payload=Object.assign({...data,hide:!data.hide})
+            if(payload.hide===false){
+                searchParams.set(payload.accessor,false);
+            }else{
+                searchParams.delete(payload.accessor);
+            }
+                setSearchParams(searchParams)
+                const action=handlehide(payload)
+                dispatch(action)
         }
-            setSearchParams(searchParams)
-            const action=handlehide(payload)
-            dispatch(action)
-        }
-        //for hiding setting div
-        const hidesettings = ()=>{
-            setSettingOpen(!settingOpen);
-        }
-        const handleFilters = () => {
-        hidesettings()
-        
-
+    }
+    //for hiding setting div
+    const hidesettings = ()=>{
+        setSettingOpen(!settingOpen);
+    }
+    const handleFilters = () => {
+    hidesettings()
     }
     
 
