@@ -52,7 +52,7 @@ const TablePage = () => {
   // after date getting data related to it
   const getData = async (s, e) => {
     const res = await fetch(
-      `http://go-dev.greedygame.com/v3/dummy/report?startDate=${s}&endDate=${e}`
+      `https://go-dev.greedygame.com/v3/dummy/report?startDate=${s}&endDate=${e}`
     );
 
     const data1 = await res.json();
