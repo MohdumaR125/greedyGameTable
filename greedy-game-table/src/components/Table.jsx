@@ -27,10 +27,18 @@ const Table = (props)=>{
        }
         
     });
+
+    // let table = document.getElementById("table");
+    // let cells = table.getElementsByTagName("td");
+    // console.log(cells)
+    const editCell = (e) => {
+        let input=document.createElement("input");
+        input.setAttribute("type","text");
+    }
   
 
     return (
-        <table className={Styles.table}>
+        <table className={Styles.table} id="table">
             <thead>
                 <tr>
                     {
@@ -47,7 +55,7 @@ const Table = (props)=>{
                     data.map((el,index)=>(
                         <tr key={index} className={Styles.row}>
                             { Object.values(el).map((value,index2)=>(
-                               state[index2].hide && <td key={index2}>{value}</td>
+                               state[index2].hide && <td key={index2} id={value+index2+index+Date.now()} onClick={editCell}>{value}</td>
                             ))}
                         </tr>
                     ))

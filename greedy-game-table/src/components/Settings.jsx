@@ -17,7 +17,6 @@ const Settings = (props)=>{
     //hiding or unhiding column of the table
     const handleHide = (e) => {
         const id=e.target.id;
-        console.log(id)
         if(id!=="Date"&&id!=="App Name"){
             console.log("enter",id)
             const data=Columns.find((el)=>{
